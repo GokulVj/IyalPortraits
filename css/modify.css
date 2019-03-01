@@ -1,0 +1,27 @@
+fieldset{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+}
+legend{
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+.canvas {
+    background: #fff;
+    color:#000;
+}
+.legend-span {
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+    padding-right:10px;
+}
+.reset-button {
+    display: none;
+}
+.submit-button {
+    display: none;
+}
