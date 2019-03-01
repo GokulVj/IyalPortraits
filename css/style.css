@@ -68,12 +68,12 @@ a.navmenu-brand {
 html{
   overflow-x: hidden;
 }
-.social i.fa {
+.social i.fab {
   padding: 8px;
   cursor: pointer;
 }
 
-.social i.fa:hover {
+.social i.fab:hover {
   color: white;
   transition:.3s;
 }
@@ -113,22 +113,12 @@ h2.sub-title-home {
   text-align: center;
   color: rgba(255, 228, 196, 0.21);
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> master
 li.category-item a {
     color: #888888;
 }
 li.category-item a:hover {
    color: #337ab7;
 }
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> master
 /* ----------------------------------------------------
   Gallery
 ------------------------------------------------------- */
@@ -154,7 +144,6 @@ li.category-item a:hover {
   height: 100px;
   background: #0D8;
   border: 2px solid white;
-  border-color: white;
 }
 
 .grid-item--width2 {
@@ -170,11 +159,11 @@ li.category-item a:hover {
 ------------------------------------------------------- */
 .blog-post {
   width: 330px;
-  padding: 27px 0px 0 24px;
+  padding: 27px 0 0 24px;
   float: left;
 }
 p.blog-text {
-  padding: 0px 0px;
+  padding: 0 0;
 }
 .canvas.col-md-3.container.page-container.sidebar {
   position: fixed;
@@ -193,7 +182,7 @@ p.blog-post-sub-title.text-center {
   color: rgba(184, 177, 168, 1);
 }
 h3.blog-post-title {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 
@@ -263,7 +252,7 @@ h4.left-side.sidebar-title {
 }
 input#name, input#email {
   margin-bottom: 10px;
-  border-radius: 0px;
+  border-radius: 0;
 }
 form {
   margin-top: 20px;
@@ -295,7 +284,7 @@ textarea#message {
 }
 
 .carousel-indicators li {
-  border-radius: 0px;
+  border-radius: 0;
   width: 20px;
   height: 5px;
 }
@@ -335,7 +324,7 @@ textarea#message {
   /* margin-bottom: 28px; */
 }
 }
-@media (max-width: 1090){
+@media (max-width: 1090px){
   div.canvas {
     margin-top: -50px !important;
     height: 110% !important;
@@ -349,13 +338,12 @@ textarea#message {
 @media (min-width: 100px){
   button.navbar-toggle {
     width: 40px;
-    background:url(../img/navicon.jpg);
+    background:url(../img/navicon.jpg) no-repeat;
     z-index: 9;
     color: black;
     position: fixed;
     top: 50%;
     left: -15px;
-    background-repeat: no-repeat;
   }
   }
 @media (max-width: 1100px){
@@ -402,7 +390,7 @@ textarea#message {
     margin-left: -14px !important;
 }
 h3.blog-post-title {
-    margin-top: 0px;
+    margin-top: 0;
     text-align: center;
 }
 .photostack figure {

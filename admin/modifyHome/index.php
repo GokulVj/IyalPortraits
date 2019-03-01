@@ -16,7 +16,7 @@
                     <?php
                         require '../../db.php';
 
-                        $sql = "SELECT * FROM home_display";
+                        $sql = "SELECT * FROM home_display where is_deleted=0";
                         $count = 1;
 
                         if($resultSet = $con->query($sql)) {
@@ -27,7 +27,7 @@
                                 else {
                                     echo '<fieldset id="' . $result["id"] .'">';
                                 }
-                                echo '<legend><span class="legend-span">Slide '.$count.'</span>  <a class="edit-button btn btn-default">Edit</a> <a class="reset-button btn btn-danger">Reset</a> <a class="submit-button btn btn-success">Submit</a></legend>';
+                                echo '<legend><span class="legend-span">Slide '.$count.'</span>  <a class="edit-button btn btn-default"><i class="fas fa-edit"></i> Edit</a> <a class="delete-button btn btn-danger"><i class="fas fa-trash"></i> Delete</a> <a class="reset-button btn btn-warning"><i class="fas fa-times"></i> Reset</a> <a class="submit-button btn btn-success"><i class="fas fa-check"></i> Submit</a></legend>';
                                 echo '<div class="form-group">';
                                 echo '<label for="">Image</label>';
                                 echo '<input type="text" class="form-control image-value" id="" value="'.$result["image"].'" disabled>';
@@ -64,6 +64,23 @@
                     $fieldsetElement.find('.submit-button').css("display", "inline-block");
                 });
 
+                $('.delete-button').click(function () {
+                    $fieldsetElement = $(this).parent().parent();
+                    if (confirm("Are you sure?")) {
+                        $.ajax({
+                            url: "../../ajaxFunctions.php?function=deleteHomeContentsById",
+                            method: 'post',
+                            data: {"id": $fieldsetElement.attr('id')},
+                            success(data) {
+                                result = JSON.parse(data);
+                                if (result.success) {
+                                    location.reload();
+                                }
+                            }
+                        });
+                    }
+                });
+
                 $('.reset-button').click(function () {
                     $fieldsetElement = $(this).parent().parent();
                     $.ajax({
@@ -85,25 +102,39 @@
 
                 $('.submit-button').click(function () {
                     $fieldsetElement = $(this).parent().parent();
-                    $image = $fieldsetElement.find('.image-value').val();
-                    $heading = $fieldsetElement.find('.heading-value').val();
-                    $caption = $fieldsetElement.find('.caption-value').val();
-                    $.ajax({
-                        url: "../../ajaxFunctions.php?function=setHomeContentsById",
-                        method: 'post',
-                        data: {
-                            "id": $fieldsetElement.attr('id'),
-                            "image": $image,
-                            "heading": $heading,
-                            "caption": $caption
-                        },
-                        success(data) {
-                            result = JSON.parse(data);
-                            if (result.success) {
-                                location.reload();
-                            }
+                    $image = $fieldsetElement.find('.image-value').val().trim();
+                    $heading = $fieldsetElement.find('.heading-value').val().trim();
+                    $caption = $fieldsetElement.find('.caption-value').val().trim();
+
+                    if ($image === "" || $heading === ""  || $caption === "") {
+                        if ($image === "") {
+                            $fieldsetElement.find('.image-value').css("border-color", "red");
                         }
-                    });
+                        if ($heading === "") {
+                            $fieldsetElement.find('.heading-value').css("border-color", "red");
+                        }
+                        if ($caption === "") {
+                            $fieldsetElement.find('.caption-value').css("border-color", "red");
+                        }
+                    }
+                    else {
+                        $.ajax({
+                            url: "../../ajaxFunctions.php?function=setHomeContentsById",
+                            method: 'post',
+                            data: {
+                                "id": $fieldsetElement.attr('id'),
+                                "image": $image,
+                                "heading": $heading,
+                                "caption": $caption
+                            },
+                            success(data) {
+                                result = JSON.parse(data);
+                                if (result.success) {
+                                    location.reload();
+                                }
+                            }
+                        });
+                    }
                 });
             });
         </script>

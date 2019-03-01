@@ -50,12 +50,9 @@
     </ul>
     <a class="navmenu-brand" href=""><img src="<?php echo $host; ?>img/logo.png" width="160"></a>
     <div class="social">
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        <a href="#"><i class="fa fa-google-plus"></i></a>
-        <a href="#"><i class="fa fa-skype"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></i></a>
     </div>
     <!-- <div class="copyright-text">© Copyright <a href=""> Iyal Portraits</a> 2018 </div> -->
     <div class="copyright-text">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href=""> Ceeyes</a></div>

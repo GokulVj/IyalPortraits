@@ -23,6 +23,7 @@
                         echo '{"success":false}';
                     }
                 }
+                break;
             case 'setHomeContentsById':
                 if (isset($_POST['id']) and isset($_POST['image']) and isset($_POST['heading']) and isset($_POST['caption'])) {
                     $id = $_POST['id'];
@@ -37,6 +38,19 @@
                         echo '{"success":false}';
                     }
                 }
+                break;
+            case 'deleteHomeContentsById':
+                if (isset($_POST['id'])) {
+                    $id = $_POST['id'];
+                    $query = "update home_display set is_deleted=1 where id=$id";
+                    if ($result = mysqli_query($con, $query)) {
+                        echo '{"success":true}';
+                    }
+                    else {
+                        echo '{"success":false}';
+                    }
+                }
+                break;
         }
     }
 ?>
