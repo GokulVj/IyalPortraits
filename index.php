@@ -12,7 +12,7 @@
                 <?php
                     require 'db.php';
 
-                    $sql = "SELECT * FROM home_display";
+                    $sql = "select * from home_display where is_deleted=0";
                     $count = 0;
 
                     if($resultSet = $con->query($sql)) {

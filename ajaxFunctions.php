@@ -51,6 +51,20 @@
                     }
                 }
                 break;
+            case 'newHomeContents':
+                if (isset($_POST['image']) and isset($_POST['heading']) and isset($_POST['caption'])) {
+                    $image = $_POST['image'];
+                    $heading = $_POST['heading'];
+                    $caption = $_POST['caption'];
+                    $query = "insert into home_display values('','$heading','$caption','$image',0)";
+                    if ($result = mysqli_query($con, $query)) {
+                        echo '{"success":true}';
+                    }
+                    else {
+                        echo '{"success":false}';
+                    }
+                }
+                break;
         }
     }
 ?>
